@@ -70,7 +70,7 @@ public class Main {
                 mouseX = e.getX();
                 mouseY = e.getY();
                 mouse.set(mouseX,mouseY);
-                
+
             }
             public void mouseDragged(java.awt.event.MouseEvent e) {
                 mouseX = e.getX();
@@ -89,7 +89,11 @@ public class Main {
             long frameStart = System.nanoTime();
 
             update();
-
+            mouse.set(mouseX,mouseY);
+            long currentTime = System.nanoTime();
+            deltaTime = (currentTime - lastTime) / 1_000_000_000.0;
+            lastTime = currentTime;
+            
             java.awt.Graphics2D g = (java.awt.Graphics2D) canvas.getBufferStrategy().getDrawGraphics();
             g.drawImage(img, 0, 0, null);
             g.dispose();
@@ -126,15 +130,11 @@ public class Main {
     }
 
     static void start(){
-        P
     }
 
     static void update() {
         clear(0);
-        long currentTime = System.nanoTime();
-        deltaTime = (currentTime - lastTime) / 1_000_000_000.0;
-        lastTime = currentTime;
-
+    
     }
 
     public static int rgb(int r, int g, int b) {
