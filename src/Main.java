@@ -6,6 +6,7 @@ public class Main {
 
     static volatile boolean capEnabled = false;
     public static int mouseX, mouseY;
+    public static vec2 mouse;
     public static boolean mousePressed;
     public static double currentFPS;
     public static double deltaTime;
@@ -68,10 +69,13 @@ public class Main {
             public void mouseMoved(java.awt.event.MouseEvent e) {
                 mouseX = e.getX();
                 mouseY = e.getY();
+                mouse.set(mouseX,mouseY);
+                
             }
             public void mouseDragged(java.awt.event.MouseEvent e) {
                 mouseX = e.getX();
                 mouseY = e.getY();
+                mouse.set(mouseX,mouseY);
             }
         });
 
@@ -122,15 +126,15 @@ public class Main {
     }
 
     static void start(){
-        Test.initDemo();
+        P
     }
 
     static void update() {
+        clear(0);
         long currentTime = System.nanoTime();
         deltaTime = (currentTime - lastTime) / 1_000_000_000.0;
         lastTime = currentTime;
 
-        Test.demo();
     }
 
     public static int rgb(int r, int g, int b) {
