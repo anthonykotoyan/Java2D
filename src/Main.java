@@ -6,7 +6,7 @@ public class Main {
 
     static volatile boolean capEnabled = false;
     public static int mouseX, mouseY;
-    public static vec2 mouse;
+    public static vec2 mouse = new vec2(0,0);;
     public static boolean mousePressed;
     public static double currentFPS;
     public static double deltaTime;
